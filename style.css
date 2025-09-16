@@ -199,6 +199,7 @@ body.dark-mode form textarea {
   box-shadow: 0 0 25px rgba(13, 110, 253, 0.5); /* Blue glow */
 }
 
+/* Hover Animation for Achievement Cards */
 #achievements .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -208,3 +209,4 @@ body.dark-mode form textarea {
   transform: scale(1.05);
   box-shadow: 0 0 25px rgba(13, 110, 253, 0.5); /* Blue glow */
 }
+  

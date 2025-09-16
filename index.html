@@ -19,21 +19,24 @@ HEAD
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
 <style>
-    body {
+  body {
     font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
     background-color: #fff;
     color: #333;
     transition: background-color 0.3s ease, color 0.3s ease;
-    }
+  }
 
-    body.dark-mode {
+  body.dark-mode {
     background-color: #121212;
     color: #ddd;
-    }
+  }
 
-    .bg-hero {
-    background: linear-gradient(to right, #667eea, #764ba2);
+  /* === Animated Gradient Hero Background === */
+  .bg-hero {
+    background: linear-gradient(-45deg, #667eea, #764ba2, #6a11cb, #2575fc);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
     position: relative;
     height: 100vh;
     display: flex;
@@ -41,12 +44,28 @@ HEAD
     text-align: center;
     overflow: hidden;
     transition: background 0.3s ease;
-    }
+  }
 
-    body.dark-mode .bg-hero {
-    background: linear-gradient(to right, #4a4eaa, #563d7c);
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
     }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
+  /* Animated Gradient in Dark Mode */
+  body.dark-mode .bg-hero {
+    background: linear-gradient(45deg, #d2001a, #7462ff, #b77abe, #23d5ab);
+    background-size: 300% 300%;
+    animation: gradientMove 12s ease-in-out infinite;
+  }
+
+     /* Smoke Effect Over Gradient */
     .bg-hero::before {
     content: "";
     position: absolute;
@@ -228,6 +247,17 @@ HEAD
   }
 
   #projects .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(13, 110, 253, 0.5); /* Blue glow */
+  }
+
+    /* Hover Animation for Achievments */
+  #achievements .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  #achievements .card:hover {
     transform: scale(1.05);
     box-shadow: 0 0 25px rgba(13, 110, 253, 0.5); /* Blue glow */
   }
