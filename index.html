@@ -1,558 +1,1018 @@
-HEAD
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Joshua Calagui | Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Joshua Calagui | Portfolio</title>
 
-<!-- FontAwesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    >
 
-<!-- Typed.js -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-<style>
-  body {
-    font-family: 'Montserrat', sans-serif;
-    scroll-behavior: smooth;
-    background-color: #fff;
-    color: #333;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  body.dark-mode {
-    background-color: #121212;
-    color: #ddd;
-  }
-
-  /* === Animated Gradient Hero Background === */
-  .bg-hero {
-    background: linear-gradient(-45deg, #667eea, #764ba2, #6a11cb, #2575fc);
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    transition: background 0.3s ease;
-  }
-
-  @keyframes gradientMove {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  /* Animated Gradient in Dark Mode */
-  body.dark-mode .bg-hero {
-    background: linear-gradient(45deg, #d2001a, #7462ff, #b77abe, #23d5ab);
-    background-size: 300% 300%;
-    animation: gradientMove 12s ease-in-out infinite;
-  }
-
-     /* Smoke Effect Over Gradient */
-    .bg-hero::before {
-    content: "";
-    position: absolute;
-    top: -20%;
-    left: -20%;
-    width: 140%;
-    height: 140%;
-    background: url('https://cdn.pixabay.com/photo/2013/07/13/11/44/smoke-157038_1280.png') repeat;
-    opacity: 0.15;
-    animation: moveSmoke 60s linear infinite;
-    z-index: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    }
-
-    body.dark-mode .bg-hero::before {
-    opacity: 0.1;
-    }
-
-    .bg-hero > .container {
-    position: relative;
-    z-index: 1;
-    }
-
-    @keyframes moveSmoke {
-    0% { background-position: 0 0; }
-    100% { background-position: 1000px 0; }
-    }
-
-    .text-accent { color: #ffd369; }
-    .text-purple { color: #6f42c1; }
-
-    #backToTop {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: none;
-    padding: 10px 15px;
-    font-size: 20px;
-    border: none;
-    background-color: #0d6efd;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-    }
-
-    body.dark-mode #backToTop {
-    background-color: #375a7f;
-    }
-
-    .navbar-shrink {
-    padding-top: 5px !important;
-    padding-bottom: 5px !important;
-    transition: all 0.3s ease;
-    }
-
-    .social-icons a {
-    color: #333;
-    transition: color 0.3s ease;
-    display: inline-block;
-    }
-
-    body.dark-mode .social-icons a {
-    color: #ddd;
-    }
-
-    .social-icons a:hover {
-    color: #0d6efd;
-    transform: scale(1.2);
-    transition: color 0.3s ease, transform 0.3s ease;
-    }
-
-    body.dark-mode .navbar {
-    background-color: #1f1f1f !important;
-    }
-
-    body.dark-mode .navbar .nav-link {
-    color: #ccc !important;
-    }
-
-    body.dark-mode .navbar .nav-link:hover {
-    color: #0d6efd !important;
-    }
-
-    body.dark-mode .navbar-brand {
-    color: #ffd369 !important;
-    }
-
-    .animate {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-
-    .animate.visible {
-    opacity: 1;
-    transform: translateY(0);
-    }
-
-    .delay-1 { transition-delay: 0.1s; }
-    .delay-2 { transition-delay: 0.2s; }
-    .delay-3 { transition-delay: 0.3s; }
-    .delay-4 { transition-delay: 0.4s; }
-
-    .btn-primary:hover {
-    animation: pulse 1.2s infinite;
-    }
-
-    @keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 8px rgba(13, 110, 253, 0.7);
-    }
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 16px rgba(13, 110, 253, 1);
-    }
-    }
-
-    body.dark-mode .card {
-    background-color: #1e1e1e;
-    color: #ccc;
-    border-color: #333;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    body.dark-mode form input,
-    body.dark-mode form textarea {
-    background-color: #2c2c2c;
-    color: #eee;
-    border: 1px solid #444;
-    }
-
-    body.dark-mode form input::placeholder,
-    body.dark-mode form textarea::placeholder {
-    color: #999;
-    }
-
-    body.dark-mode footer {
-    background-color: #121212;
-    color: #bbb;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    #theme-toggle {
-    border: none;
-    background: transparent;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    }
-
-    body.dark-mode #theme-toggle {
-    color: #ffd369;
-    }
-
-    /* 🔧 FIX: Dark mode background for skills */
-    body.dark-mode #skills {
-    background-color: #1f1f1f !important;
-    }
-      /* Hover Animation for Skills Icons */
-  #skills .col-md-3 {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: default;
-  }
-
-  #skills .col-md-3:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(111, 66, 193, 0.5); /* Subtle purple glow */
-  }
-
-  /* Hover Animation for Project Cards */
-  #projects .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-
-  #projects .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(13, 110, 253, 0.5); /* Blue glow */
-  }
-
-    /* Hover Animation for Achievments */
-  #achievements .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-
-  #achievements .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(13, 110, 253, 0.5); /* Blue glow */
-  }
-</style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70">
 
-<!-- Navbar -->
-<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-3">
-    <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Joshua's Portfolio</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
-        <span class="navbar-toggler-icon"></span>
+<body>
+
+    <!-- =========================================
+         NAVBAR
+    ========================================== -->
+
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="#hero">
+                Joshua<span>.</span>
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div
+                class="collapse navbar-collapse"
+                id="navbarNav"
+            >
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">
+                            About
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">
+                            Skills
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">
+                            Projects
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#achievements">
+                            Achievements
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-lg-3">
+
+                        <button
+                            id="themeToggle"
+                            class="theme-toggle"
+                            type="button"
+                            aria-label="Toggle dark mode"
+                        >
+                            <i class="fas fa-moon"></i>
+                        </button>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <section id="hero" class="bg-hero">
+
+        <div class="hero-overlay"></div>
+
+        <div class="container position-relative">
+
+            <div class="hero-content animate">
+
+                <p class="hero-label">
+                    WELCOME TO MY PORTFOLIO
+                </p>
+
+                <h1>
+                    Hi, I'm
+                    <span class="text-accent">
+                        Joshua Calagui
+                    </span>
+                </h1>
+
+                <h2>
+                    BSIT Student & Aspiring Web Developer
+                </h2>
+
+                <p class="hero-description">
+                    I enjoy learning technology, creating websites,
+                    designing interfaces, and developing useful systems.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#projects"
+                        class="btn btn-primary"
+                    >
+                        <i class="fas fa-code"></i>
+                        View My Work
+                    </a>
+
+                    <a
+                        href="#contact"
+                        class="btn btn-outline-light"
+                    >
+                        <i class="fas fa-envelope"></i>
+                        Contact Me
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         ABOUT ME
+    ========================================== -->
+
+    <section id="about" class="section-padding">
+
+        <div class="container">
+
+            <div class="section-title animate">
+
+                <span>GET TO KNOW ME</span>
+
+                <h2>About Me</h2>
+
+                <div class="title-line"></div>
+
+            </div>
+
+
+            <div class="about-container">
+
+                <!-- LEFT SIDE -->
+
+                <div class="about-profile animate">
+
+                    <div class="profile-container">
+
+                        <img
+                            src="image/myself.jpg"
+                            alt="Joshua Calagui"
+                            class="profile-image"
+                        >
+
+                    </div>
+
+                    <div class="profile-caption">
+
+                        <h3>
+                            Joshua Calagui
+                        </h3>
+
+                        <p>
+                            BSIT Student
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT SIDE -->
+
+                <div class="about-content animate delay-1">
+
+                    <!-- INTRODUCTION -->
+
+                    <div class="about-intro">
+
+                        <span class="about-label">
+                            WHO I AM
+                        </span>
+
+                        <h3>
+                            A Student Who Loves
+                            <span>Technology</span>
+                        </h3>
+
+                        <p>
+                            I am a BSIT student who is hardworking and
+                            willing to learn new skills. I enjoy working
+                            with others, solving problems, and exploring
+                            different areas of technology.
+                        </p>
+
+                        <p>
+                            I always try my best to finish my work on time
+                            and improve my skills through practice and
+                            experience. I am interested in web development,
+                            UI/UX design, and creating systems that can
+                            help people.
+                        </p>
+
+                    </div>
+
+
+                    <!-- EDUCATION -->
+
+                    <div class="education-section">
+
+                        <div class="about-subtitle">
+
+                            <i class="fas fa-graduation-cap"></i>
+
+                            <h4>
+                                Education
+                            </h4>
+
+                        </div>
+
+
+                        <div class="education-list">
+
+                            <div class="education-item">
+
+                                <div class="education-dot"></div>
+
+                                <div class="education-info">
+
+                                    <h5>
+                                        Espiritu Santo Parochial School
+                                    </h5>
+
+                                    <p>
+                                        Senior High
+                                        <span>
+                                            2022–2024
+                                        </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="education-item">
+
+                                <div class="education-dot"></div>
+
+                                <div class="education-info">
+
+                                    <h5>
+                                        St. Paul University Surigao
+                                    </h5>
+
+                                    <p>
+                                        Grade 8–10
+                                        <span>
+                                            2019–2022
+                                        </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="education-item">
+
+                                <div class="education-dot"></div>
+
+                                <div class="education-info">
+
+                                    <h5>
+                                        Notre Dame of Surala
+                                    </h5>
+
+                                    <p>
+                                        Grade 7
+                                        <span>
+                                            2018–2019
+                                        </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="education-item">
+
+                                <div class="education-dot"></div>
+
+                                <div class="education-info">
+
+                                    <h5>
+                                        Purok Sison Elementary School
+                                    </h5>
+
+                                    <p>
+                                        Grade 3–6
+                                        <span>
+                                            2014–2018
+                                        </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="education-item">
+
+                                <div class="education-dot"></div>
+
+                                <div class="education-info">
+
+                                    <h5>
+                                        Melencio M. Castelo Elem. School
+                                    </h5>
+
+                                    <p>
+                                        Kinder–Grade 2
+                                        <span>
+                                            2011–2014
+                                        </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RESUME + SOCIAL MEDIA -->
+
+                    <div class="about-actions">
+
+                        <a
+                            href="resume/CALAGUI RESUME.pdf"
+                            target="_blank"
+                            class="btn btn-primary"
+                        >
+                            <i class="fas fa-file-pdf"></i>
+                            View Resume
+                        </a>
+
+
+                        <div class="social-icons">
+
+                            <a
+                                href="https://www.facebook.com/joshua.calagui.73/"
+                                target="_blank"
+                                aria-label="Facebook"
+                            >
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+
+                            <a
+                                href="mailto:calaguijoshua0@gmail.com"
+                                aria-label="Email"
+                            >
+                                <i class="fas fa-envelope"></i>
+                            </a>
+
+                            <a
+                                href="https://www.instagram.com/jo_calss/"
+                                target="_blank"
+                                aria-label="Instagram"
+                            >
+                                <i class="fab fa-instagram"></i>
+                            </a>
+
+                            <a
+                                href="https://github.com/calagujoshua0-tech"
+                                target="_blank"
+                                aria-label="GitHub"
+                            >
+                                <i class="fab fa-github"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         SKILLS
+    ========================================== -->
+
+    <section id="skills" class="section-padding gray-section">
+
+        <div class="container">
+
+            <div class="section-title animate">
+
+                <span>WHAT I KNOW</span>
+
+                <h2>My Skills</h2>
+
+                <div class="title-line"></div>
+
+            </div>
+
+
+            <div class="row g-4 justify-content-center">
+
+                <!-- HTML -->
+
+                <div class="col-6 col-md-3 animate delay-1">
+
+                    <div class="skill-card">
+
+                        <i class="fab fa-html5 skill-icon html"></i>
+
+                        <h4>
+                            HTML5
+                        </h4>
+
+                        <p>
+                            Web Structure
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CSS -->
+
+                <div class="col-6 col-md-3 animate delay-2">
+
+                    <div class="skill-card">
+
+                        <i class="fab fa-css3-alt skill-icon css"></i>
+
+                        <h4>
+                            CSS3
+                        </h4>
+
+                        <p>
+                            Web Styling
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- JAVASCRIPT -->
+
+                <div class="col-6 col-md-3 animate delay-3">
+
+                    <div class="skill-card">
+
+                        <i class="fab fa-js skill-icon javascript"></i>
+
+                        <h4>
+                            JavaScript
+                        </h4>
+
+                        <p>
+                            Web Interaction
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOOTSTRAP -->
+
+                <div class="col-6 col-md-3 animate delay-4">
+
+                    <div class="skill-card">
+
+                        <i class="fab fa-bootstrap skill-icon bootstrap"></i>
+
+                        <h4>
+                            Bootstrap
+                        </h4>
+
+                        <p>
+                            Responsive Design
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         PROJECTS
+    ========================================== -->
+
+    <section id="projects" class="section-padding">
+
+        <div class="container">
+
+            <div class="section-title animate">
+
+                <span>MY WORK</span>
+
+                <h2>My Projects</h2>
+
+                <div class="title-line"></div>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <!-- PROJECT 1 -->
+
+                <div class="col-lg-4 animate delay-1">
+
+                    <div class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="image/project1.png"
+                                alt="Laundry Pickup Management System"
+                            >
+
+                        </div>
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                MS ACCESS
+                            </span>
+
+                            <h3>
+                                Laundry Pickup Management System
+                            </h3>
+
+                            <p>
+                                A database management system created
+                                using Microsoft Access for managing
+                                laundry pickup information.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT 2 -->
+
+                <div class="col-lg-4 animate delay-2">
+
+                    <div class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="image/project2.png"
+                                alt="Event Management System"
+                            >
+
+                        </div>
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                JAVA + MYSQL
+                            </span>
+
+                            <h3>
+                                Event Management System
+                            </h3>
+
+                            <p>
+                                A simple event management system
+                                developed using NetBeans and MySQL.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT 3 -->
+
+                <div class="col-lg-4 animate delay-3">
+
+                    <div class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="image/project3.png"
+                                alt="Personal Portfolio Website"
+                            >
+
+                        </div>
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                WIX
+                            </span>
+
+                            <h3>
+                                Personal Portfolio Website
+                            </h3>
+
+                            <p>
+                                A personal portfolio website created
+                                using Wix to showcase my skills and work.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         ACHIEVEMENTS
+    ========================================== -->
+
+    <section id="achievements" class="section-padding gray-section">
+
+        <div class="container">
+
+            <div class="section-title animate">
+
+                <span>MY EXPERIENCES</span>
+
+                <h2>Achievements</h2>
+
+                <div class="title-line"></div>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <!-- ACHIEVEMENT 1 -->
+
+                <div class="col-lg-4 animate delay-1">
+
+                    <div class="achievement-card">
+
+                        <div class="achievement-image">
+
+                            <img
+                                src="image/UI-UX.jpg"
+                                alt="UI UX Design Workshop"
+                            >
+
+                        </div>
+
+                        <div class="achievement-content">
+
+                            <div class="achievement-icon">
+                                <i class="fas fa-pen-ruler"></i>
+                            </div>
+
+                            <h3>
+                                UI/UX Design Workshop
+                            </h3>
+
+                            <p>
+                                I joined a UI/UX design workshop where
+                                I learned how to create designs and
+                                practiced using tools like Figma.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACHIEVEMENT 2 -->
+
+                <div class="col-lg-4 animate delay-2">
+
+                    <div class="achievement-card">
+
+                        <div class="achievement-image">
+
+                            <img
+                                src="image/speedtyping.jpg"
+                                alt="Speed Typing Contest"
+                            >
+
+                        </div>
+
+                        <div class="achievement-content">
+
+                            <div class="achievement-icon">
+                                <i class="fas fa-keyboard"></i>
+                            </div>
+
+                            <h3>
+                                Speed Typing Contest
+                            </h3>
+
+                            <p>
+                                I participated in a speed typing contest
+                                as part of a team, and we secured
+                                2nd place.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACHIEVEMENT 3 -->
+
+                <div class="col-lg-4 animate delay-3">
+
+                    <div class="achievement-card">
+
+                        <div class="achievement-image">
+
+                            <img
+                                src="image/electedofficer.jpg"
+                                alt="Elected Officer"
+                            >
+
+                        </div>
+
+                        <div class="achievement-content">
+
+                            <div class="achievement-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+
+                            <h3>
+                                Elected Officer
+                            </h3>
+
+                            <p>
+                                I was chosen by my peers to become
+                                an officer and helped organize
+                                activities and work with others.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CONTACT
+    ========================================== -->
+
+    <section id="contact" class="contact-section">
+
+        <div class="container">
+
+            <div class="section-title text-white animate">
+
+                <span>GET IN TOUCH</span>
+
+                <h2>Contact Me</h2>
+
+                <div class="title-line"></div>
+
+                <p class="contact-description">
+                    Have a question or want to connect?
+                    Send me a message.
+                </p>
+
+            </div>
+
+
+            <form
+                id="contactForm"
+                class="contact-form animate"
+            >
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-4">
+
+                        <label for="name">
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            class="form-control"
+                            placeholder="Enter your name"
+                        >
+
+                    </div>
+
+
+                    <div class="col-md-6 mb-4">
+
+                        <label for="email">
+                            Your Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            class="form-control"
+                            placeholder="Enter your email"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="mb-4">
+
+                    <label for="message">
+                        Your Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        class="form-control"
+                        rows="6"
+                        placeholder="Write your message here..."
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary send-button"
+                >
+                    <i class="fas fa-paper-plane"></i>
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="container text-center">
+
+            <div class="footer-socials">
+
+                <a
+                    href="https://www.facebook.com/joshua.calagui.73/"
+                    target="_blank"
+                >
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a
+                    href="mailto:calaguijoshua0@gmail.com"
+                >
+                    <i class="fas fa-envelope"></i>
+                </a>
+
+                <a
+                    href="https://www.instagram.com/jo_calss/"
+                    target="_blank"
+                >
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a
+                    href="https://github.com/calagujoshua0-tech"
+                    target="_blank"
+                >
+                    <i class="fab fa-github"></i>
+                </a>
+
+            </div>
+
+            <p>
+                © 2026 Joshua Calagui. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================
+         BACK TO TOP
+    ========================================== -->
+
+    <button
+        id="backToTop"
+        type="button"
+        aria-label="Back to top"
+    >
+        <i class="fas fa-arrow-up"></i>
     </button>
-    <div class="collapse navbar-collapse justify-content-end align-items-center" id="navContent">
-        <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-        <button id="theme-toggle" class="ms-3" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">
-            <i class="fas fa-moon"></i>
-        </button>
-    </div>
-    </div>
-</nav>
-
-<!-- Hero -->
- <section id="hero" class="bg-hero text-white">
-    <div class="container">
-      <h1 class="display-4 fw-bold">Hi, I'm <span class="text-accent">Joshua Calagui</span></h1>
-      <p class="lead">
-        <span id="typed-text"></span>
-      </p>
-      <a href="#contact" class="btn btn-primary mt-3">Let's Work Together</a>
-    </div>
-  </section>
 
 
-<!-- About -->
-<section id="about" class="py-5 animate">
-    <div class="container">
-    <div class="row align-items-center">
-        <div class="col-md-6">
-        <img src="image/myself.jpg" alt="Profile" class="img-fluid rounded-circle">
-        </div>
-        <div class="col-md-6 text-start mt-3 mt-md-0">
-        <h2 class="fw-bold">About Me</h2>
-        <p>
-            I am a BSIT student I am a hard-working and reliable person who is eager to learn new skills. I work well with others and communicate clearly to make sure tasks are done right. I pay close attention to details and always try my best to finish work on time. I am responsible and can handle challenges with a positive attitude. I enjoy working in a team and helping others when needed. I am excited to enhance my skills and grow in my chosen career.
-        </p>
-        <div class="mt-4">
-            <h5 class="fw-semibold">MY EDUCATION:</h5>
-            <ul class="list-unstyled">
-            <li><strong>Espiritu Santo Parochial School</strong><br>Senior High (2022–2024)</li>
-            <li class="mt-2"><strong>St. Paul University Surigao</strong><br>Grade 8 – 10 (2019 – 2022)</li>
-            <li class="mt-2"><strong>Notre Dame of Surala</strong><br>Grade 7 (2018 – 2019)</li>
-            <li class="mt-2"><strong>Purok Sison Elementary School</strong><br>Grade 3 – 6 (2014 – 2018)</li>
-            <li class="mt-2"><strong>Melencio M. Castelo Elem. School</strong><br>Kinder – Grade 2 (2011 – 2014)</li>
-            </ul>
-  <!--Resume-->
-        </div>
-        <a href="resume/CALAGUI RESUME.pdf" target="_blank" class="btn btn-outline-primary mt-3">
-  <i class="fas fa-download"></i> Download Resume
-</a>
-        <div class="mt-4">
-            <h5>Connect with me:</h5>
-            <div class="social-icons d-flex gap-3 fs-4 mt-2">
-            <a href="https://www.facebook.com/joshua.calagui.73/" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="mailto:calaguijoshua0@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.instagram.com/jo_calss/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://github.com/calaguijoshua0-tech" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-</section>
+    <!-- Bootstrap JavaScript -->
 
-<!-- Skills -->
-<section id="skills" class="py-5 bg-light animate">
-    <div class="container">
-    <h2 class="text-center fw-bold mb-4">Skills</h2>
-    <div class="row text-center">
-        <div class="col-md-3 mb-4 animate delay-1">
-        <i class="fab fa-html5 fa-3x text-danger"></i>
-        <h5 class="mt-2">HTML5</h5>
-        </div>
-        <div class="col-md-3 mb-4 animate delay-2">
-        <i class="fab fa-css3-alt fa-3x text-primary"></i>
-        <h5 class="mt-2">CSS3</h5>
-        </div>
-        <div class="col-md-3 mb-4 animate delay-3">
-        <i class="fab fa-js fa-3x text-warning"></i>
-        <h5 class="mt-2">JavaScript</h5>
-        </div>
-        <div class="col-md-3 mb-4 animate delay-4">
-        <i class="fab fa-bootstrap fa-3x text-purple"></i>
-        <h5 class="mt-2">Bootstrap</h5>
-        </div>
-    </div>
-    </div>
-</section>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    ></script>
 
-<!-- Projects -->
-<section id="projects" class="py-5 animate">
-    <div class="container">
-    <h2 class="text-center fw-bold mb-4">My Projects</h2>
-    <div class="row">
-        <div class="col-md-4 mb-4 animate delay-1">
-        <div class="card">
-            <img src="image/project1.png" class="card-img-top" alt="Project 1">
-            <div class="card-body">
-            <h3 class="card-title">Database - MS Access</h3>
-            <p class="card-text">Laundry Pickup Management System with tables, queries, and forms using MS Access.</p>
-            </div>
-        </div>
-        </div>
-        <div class="col-md-4 mb-4 animate delay-2">
-        <div class="card">
-            <img src="image/project2.png" class="card-img-top" alt="Project 2">
-            <div class="card-body">
-            <h3 class="card-title">Netbeans + MySQL</h3>
-            <p class="card-text">Simple Event Management System built using Netbeans and MySQL Workbench.</p>
-            </div>
-        </div>
-        </div>
-        <div class="col-md-4 mb-4 animate delay-3">
-        <div class="card">
-            <img src="image/project3.png" class="card-img-top" alt="Project 3">
-            <div class="card-body">
-            <h3 class="card-title">Wix Website</h3>
-            <p class="card-text">Personal portfolio website made with Wix showing design and layout skills.</p>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-</section>
+    <!-- Custom JavaScript -->
 
-<!-- Achievements -->
-<section id="achievements" class="py-5 animate">
-    <div class="container">
-    <h2 class="text-center fw-bold mb-4">Achievements</h2>
-    <div class="row">
-        <div class="col-md-4 mb-4 animate delay-1">
-        <div class="card">
-            <img src="image/UI-UX.jpg" class="card-img-top" alt="Project 1">
-            <div class="card-body">
-            <h3 class="card-title">UI/UX Design Workshop</h3>
-            <p class="card-text">I joined a UI/UX design workshop where I learned how to make designs. We did simple projects and used tools like Figma to practice. The workshop helped me get better at design and think more about what users need.</p>
-            </div>
-        </div>
-        </div>
-        <div class="col-md-4 mb-4 animate delay-2">
-        <div class="card">
-            <img src="image/speedtyping.jpg" class="card-img-top" alt="Project 2">
-            <div class="card-body">
-            <h3 class="card-title">Speed Typing Contest</h3>
-            <p class="card-text">I participated in a speed typing contest as part of a team, and we secured 2nd place. The competition was fast-paced and required both speed and accuracy under pressure. Through regular practice and strong team work, we were able to perform well and stay focused. This experience improved my typing skills and thought me the value of preparation and collaboration.</p>
-            </div>
-        </div>
-        </div>
-        <div class="col-md-4 mb-4 animate delay-3">
-        <div class="card">
-            <img src="image/electedofficer.jpg" class="card-img-top" alt="Project 3">
-            <div class="card-body">
-            <h3 class="card-title">Elected Officer</h3>
-            <p class="card-text">I was chosen by my peers to be an officer, where I helped organize activities and work with the team. In this role, I learned how to communicate well and work with others. Being an officer taught me to be responsible and take charge when needed. This experience helped me get better at working in a group and leading tasks.</p>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="bg-dark text-white py-5 animate">
-    <div class="container">
-    <h2 class="text-center fw-bold mb-4">Contact Me</h2>
-    <form class="col-md-8 mx-auto" id="contactForm">
-        <div class="mb-3">
-        <label for="name" class="form-label">Your Name</label>
-        <input type="text" class="form-control" id="name" required>
-        </div>
-        <div class="mb-3">
-        <label for="email" class="form-label">Your Email</label>
-        <input type="email" class="form-control" id="email" required>
-        </div>
-        <div class="mb-3">
-        <label for="message" class="form-label">Your Message</label>
-        <textarea class="form-control" id="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Send Message</button>
-    </form>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="text-center py-4 bg-black text-white">
-    <p class="mb-0">&copy; 2025 Joshua Calagui | All rights reserved.</p>
-</footer>
-
-<!-- Back to Top -->
-<button id="backToTop">↑</button>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Custom JS -->
-<script>
-    // Smooth scroll
-    document.querySelectorAll('a.nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        if (this.hash !== '') {
-        e.preventDefault();
-        const target = document.querySelector(this.hash);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        }
-    });
-    });
-
-    // Back to top
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-    backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-    backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Animate on scroll
-    const animateElements = document.querySelectorAll('.animate');
-    const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-        }
-    });
-    }, { threshold: 0.1 });
-    animateElements.forEach(el => observer.observe(el));
-
-    // Navbar shrink on scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-    if(window.scrollY > 50) {
-        navbar.classList.add('navbar-shrink');
-    } else {
-        navbar.classList.remove('navbar-shrink');
-    }
-    });
-
-    // Dark Mode Toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-mode');
-    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    }
-
-    themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    if(body.classList.contains('dark-mode')) {
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        localStorage.setItem('theme', 'dark');
-    } else {
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        localStorage.setItem('theme', 'light');
-    }
-    });
-
-    // Contact form alert
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', e => {
-    e.preventDefault();
-    alert('Thank you for your message, I will get back to you soon!');
-    contactForm.reset();
-    });
-
-      // 🔡 Typed.js animation
-    const typed = new Typed('#typed-text', {
-      strings: ['Web Developer', 'UI/UX Designer', 'Student'],
-      typeSpeed: 60,
-      backSpeed: 40,
-      backDelay: 1500,
-      loop: true
-    });
-</script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
